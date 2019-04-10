@@ -6,29 +6,40 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="dados_projetos")
+@Table(name = "dados_projetos")
 public class DadosProjetos {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@OneToMany(mappedBy = "projetos")
+	@JsonIgnore
 	private List<DadosMensais> mensais;
 	private String nome_projetos;
 	private Float valor;
 	private int qtd_meses;
 
-//	public DadosProjetos(String nome_projetos, Float valor, int qtd_meses) {
-//		this.nome_projetos = nome_projetos;
-//		this.valor = valor;
-//		this.qtd_meses = qtd_meses;
-//	}
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public List<DadosMensais> getMensais() {
+		return mensais;
+	}
+
+	public void setMensais(List<DadosMensais> mensais) {
+		this.mensais = mensais;
+	}
 
 	public String getNome_projetos() {
 		return nome_projetos;
@@ -54,15 +65,9 @@ public class DadosProjetos {
 		this.qtd_meses = qtd_meses;
 	}
 
-	public int getId() {
-		return id;
+	@Override
+	public String toString() {
+		return "DadosProjetos [id=" + id + "]";
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	
-	
-	
 }

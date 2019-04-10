@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.confin.controlesFinanceiros.domain.DadosMensais;
+import com.confin.controlesFinanceiros.domain.DadosProjetos;
 import com.confin.controlesFinanceiros.repository.MensalRepository;
+import com.confin.controlesFinanceiros.repository.ProjetoRepository;
 
 @RestController
 @RequestMapping("/mensal")
@@ -21,6 +23,12 @@ public class MensalController {
 
 	@Autowired
 	private MensalRepository repositorioMensal;
+
+	private ProjetoRepository projetoRepository;
+
+	public MensalController(ProjetoRepository projetoRepository) {
+		this.projetoRepository = projetoRepository;
+	}
 
 	@GetMapping("/listar")
 	public List<DadosMensais> findAll() {
@@ -35,19 +43,22 @@ public class MensalController {
 
 	@PostMapping("/salvar")
 	public DadosMensais salvar(DadosMensais dados) {
+		System.out.println(dados);
+		DadosProjetos projeto = projetoRepository.findAllById(dados.getProjetos().getId());
+		dados.setProjetos(projeto);
 		return repositorioMensal.save(dados);
 	}
 
-	@DeleteMapping("apagar/{id_mansal}")
+	@DeleteMapping("apagar/{id_mensal}")
 	public void apagar(@PathVariable Integer id_mensal) {
 		repositorioMensal.deleteById(id_mensal);
 	}
 
-	@PutMapping("/atualizar/{id}")
-	public DadosMensais atualizarProjeto(DadosMensais dados, @PathVariable Integer id_mensal) {
-		if (dados.getId_mensal() != id_mensal) {
-			System.out.println("Esse Projeto não existe");
-		}
+	@PutMapping("/atualizar/{id_mensal}")
+	public DadosMensais atualizarProjeto(DadosMensais dados) {
+		System.out.println(dados);
+		DadosProjetos projeto = projetoRepository.findAllById(dados.getProjetos().getId());
+		dados.setProjetos(projeto);
 		return repositorioMensal.save(dados);
 
 	}
