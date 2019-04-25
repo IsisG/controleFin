@@ -21,9 +21,19 @@ public class DadosProjetos {
 	@OneToMany(mappedBy = "projetos")
 	@JsonIgnore
 	private List<DadosMensais> mensais;
-	private String nome_projetos;
+	private String nomeProjetos;
 	private Float valor;
 	private int qtd_meses;
+
+	/*
+	 * @JsonCreator public DadosProjetos(@JsonProperty("id") Integer
+	 * id, @JsonProperty("nome_projetos") String
+	 * nome_projetos, @JsonProperty("valor") Float valor, @JsonProperty("qtd_meses")
+	 * int qtd_meses) { this.id = id; this.nome_projetos = nome_projetos; this.valor
+	 * = valor; this.qtd_meses = qtd_meses; }
+	 * 
+	 * public DadosProjetos() {}
+	 */
 
 	public Integer getId() {
 		return id;
@@ -41,12 +51,12 @@ public class DadosProjetos {
 		this.mensais = mensais;
 	}
 
-	public String getNome_projetos() {
-		return nome_projetos;
+	public String getNomeProjetos() {
+		return nomeProjetos;
 	}
 
-	public void setNome_projetos(String nome_projetos) {
-		this.nome_projetos = nome_projetos;
+	public void setNomeProjetos(String nomeProjetos) {
+		this.nomeProjetos = nomeProjetos;
 	}
 
 	public Float getValor() {

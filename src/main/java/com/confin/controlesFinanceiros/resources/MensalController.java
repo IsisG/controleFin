@@ -4,12 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.confin.controlesFinanceiros.domain.DadosMensais;
@@ -30,32 +29,36 @@ public class MensalController {
 		this.projetoRepository = projetoRepository;
 	}
 
-	@GetMapping("/listar")
+	@CrossOrigin
+	@RequestMapping(method = RequestMethod.GET, path = "/listar")
 	public List<DadosMensais> findAll() {
 		return repositorioMensal.findAll();
 	}
 
-	@GetMapping("/{id_mensal}")
-	public Optional<DadosMensais> findOne(@PathVariable(value = "id_mensal") Integer id_mensal) {
-		return repositorioMensal.findById(id_mensal);
+	@CrossOrigin
+	@RequestMapping(method = RequestMethod.GET, path = "/{nome}")
+	public List<DadosMensais> mostrar(@PathVariable String nome) {
+		return repositorioMensal.findAllByProjetos_NomeProjetos(nome);		
+	};
 
-	}
-
-	@PostMapping("/salvar")
-	public DadosMensais salvar(DadosMensais dados) {
+	@CrossOrigin
+	@RequestMapping(method = RequestMethod.POST, path = "/salvar")
+	public DadosMensais salvar(@RequestBody DadosMensais dados) {
 		System.out.println(dados);
 		DadosProjetos projeto = projetoRepository.findAllById(dados.getProjetos().getId());
 		dados.setProjetos(projeto);
 		return repositorioMensal.save(dados);
 	}
 
-	@DeleteMapping("apagar/{id_mensal}")
-	public void apagar(@PathVariable Integer id_mensal) {
+	@CrossOrigin
+	@RequestMapping(method = RequestMethod.DELETE, path = "apagar/{id_mensal}")
+	public void apagar(@PathVariable(value ="id_mensal") Integer id_mensal) {
 		repositorioMensal.deleteById(id_mensal);
 	}
 
-	@PutMapping("/atualizar/{id_mensal}")
-	public DadosMensais atualizarProjeto(DadosMensais dados) {
+	@CrossOrigin
+	@RequestMapping(method = RequestMethod.PUT, path = "/atualizar")
+	public DadosMensais atualizarProjeto(@RequestBody DadosMensais dados) {
 		System.out.println(dados);
 		DadosProjetos projeto = projetoRepository.findAllById(dados.getProjetos().getId());
 		dados.setProjetos(projeto);

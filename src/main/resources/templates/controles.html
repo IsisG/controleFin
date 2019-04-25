@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html data-ng-app="app">
-<head>
-	 <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="../angular.js"></script>
-	<script src="../app.js"></script>
-	<title>Inicial</title>
-</head>
-<body data-ng-controller="controllerProjeto">
-<div class="container-fluid ">
-	 	<header>
+	<head>
+		 <!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="../angular.js"></script>
+		<script src="../app.js"></script>
+		
+		<title>Controle</title>
+	</head>
+	<body data-ng-controller="controllercontroles">
+	
+	<header>
 	 	  <div class="row  p-3 d-flex justify-content-between" style=" background: #e9ecef">
 		      <h3 style="color:#02376f"><img src="https://img.icons8.com/cotton/64/000000/receive-cash.png">Projetos de Finanças</h3>
 		       <div class="btn-group">
@@ -30,9 +31,6 @@
  	</header> 
 
   <div class="row p-1" style="background: #7190b1"></div>
-  
-  <!--              MAIN                       -->
-  
      <div class="row">
      <div class="col-md-1 menu" style="height: 100vh; background: #7190b1" id="menu-lateral">
      	<ul class="list-unstyled text-center mt-5">
@@ -54,91 +52,49 @@
                         </a>
                     </li>
                 </ul>
-         
-     </div>
-  <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-      <div class="col-md-11 ">
-        <div class="w-75 m-auto pt-5">
-			<nav id="tab-cadastro">
-			  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-			    <a class="nav-item nav-link active p-4" id="nav-home-tab" data-toggle="tab" href="#nav-projeto" role="tab" aria-controls="nav-home" aria-selected="true">Projeto</a>
-			    <a class="nav-item nav-link p-4" id="nav-profile-tab" data-toggle="tab" href="#nav-mensal" role="tab" aria-controls="nav-profile" aria-selected="false">Mensal</a>
-			  </div>
-		  </nav>
-			<div class="tab-content" id="nav-tabContent">
-			  <div class="tab-pane fade show active mt-5" id="nav-projeto" role="tabpanel" aria-labelledby="nav-home-tab">
-				<form name="projetoForm" class="" style="background: #f1f1f1;border:solid #e0dfdf 1px;padding: 2rem 4rem 4rem 4rem">
-					 	<h4 style="color:#5b5e61"> Cadastro do Projeto</h4>
-					  <div class="input-group mb-3">
-					   <div class="input-group-prepend">
-					    <span class="input-group-text" id="basic-addon1">Projeto</span>
-					   </div>
-					  <input autocomplete="off" type="text" class="form-control" placeholder="Nome" aria-label="nome" aria-describedby="basic-addon1" name="nome" data-ng-model="projeto.nomeProjetos">
-					  </div>
-					  <div class="input-group mb-3">
-						  <div class="input-group-prepend">
-						    <span class="input-group-text" id="basic-addon3">Meses</span>
-						  </div>
-						  <input type="number" class="form-control mr-2" name="meses" aria-describedby="basic-addon3" data-ng-model="projeto.qtd_meses">
-						  <div class="input-group-prepend">
-						    <span class="input-group-text">R$</span>
-						  </div>
-						  <input type="number" class="form-control" placeholder="Valor do Investimento" name="valor" data-ng-model="projeto.valor">
-			          </div>
-		
-		         <button class="btn  float-right text-white w-25" data-ng-click="salvarProjeto(projeto)" style="background: #5688bd">Salvar</button>
-       		</form>
-			</div>
-<!--------------------------------- MENSAL ---------------------------------------------------->
-			<div class="tab-pane fade mb-3 mt-5" id="nav-mensal" role="tabpanel" aria-labelledby="nav-profile-tab" >
-			<form name="mensalForm" class="" style="background: #f1f1f1; border:solid #e0dfdf 1px; padding: 2rem 4rem 4rem 4rem">
-				 	<h4 style="color:#5b5e61">Cadastro Mensal</h4>
-				<div class="input-group mb-3">
-				  <div class="input-group-prepend">
-				    <span class="input-group-text" id="basic-addon1">Projeto</span>
-				  </div>
-				  <select id="inputState" class="form-control" data-ng-model="mensais.projetos.id" data-ng-options="teste.id as teste.nomeProjetos for teste in projetos">
-				  </select>
-				</div>
-				  <div class="input-group mb-3">
-				  <div class="input-group-prepend">
-				    <span class="input-group-text" id="basic-addon2">Mês</span>
-				  </div>
-				  <select id="inputState" class="form-control mr-2" data-ng-model="mensais.mes">
-				        <option data-ng-repeat="mes in meses">{{mes}}</option>
-				   </select>
-				 <div class="input-group-prepend">
-				    <span class="input-group-text">R$</span>
-				  </div>
-				  <input type="text" class="form-control" placeholder="Valor" data-ng-model="mensais.valor_mensal">
-				 </div>
-					<button class="btn float-right text-white w-25" style="background: #5688bd" data-ng-click="salvarMensal(mensais)">Salvar</button>
-			</form>
-			</div>
-			</div>
-        </div>
       </div>
-  </div>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<style>
 	
 	
-	  #tab-cadastro a{
-	    color:#526477;
-	  }
-	      #tab-cadastro .active{
-	         color: #f5f8fb !important;
-             background-color: #526477 !important;
-           
-              font-weight: 500 !important;
-	      }
+	
 	      
-	      #tab-cadastro  .nav-tabs .nav-link{
-	      
-	       border-radius: 0 !important;
-	      }
+<div class="row col-md-10 m-auto">
+		<div class="input-group mb-3  col-md-4">
+		  	<input type="text" class="form-control" placeholder="Projeto"  aria-describedby="button-addon2" data-ng-model="nome">
+		  <div class="input-group-append">
+		    <button class="btn btn-outline-secondary" type="button" id="button-addon2" data-ng-click="mostrarMensal(nome)">Buscar</button>
+		  </div>
+		</div>
+	
+	<table class="table">
+		  <thead class="text-white" style="background-color:#7397bb; border-color: #dee2e6">
+		    <tr>
+		      <th scope="col">Nome</th>
+			  <th scope="col">Mês</th>
+		      <th scope="col">Valor</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr ng-repeat="opcoes in lista">
+		      <th scope="row">{{opcoes.projetos.nomeProjetos}}</th>
+		      <td>{{opcoes.mes}}</td>
+		      <td>R$ {{opcoes.valor_mensal | currency : ""}}</td>
+		    </tr >
+		    <tr ng-if="lista.length >0">
+		    <th>Total / Restante</th>
+		       <th>R$ {{total | currency : ""}}</th>
+		      <th>R$ {{diferenca | currency : ""}}</th>
+		    </tr>
+		 </tbody>
+       </table>
+	
+</div>
+</div>
+
+
+
+
+<style>
+	
 	       #menu-lateral {
 	           padding: 0;
 	          
@@ -158,7 +114,13 @@
 	           cursor: pointer;
 	           transition: all 1s;
 	       } 	 
-	 </style>
-</body>
+</style>
 
+	 <!-- Optional JavaScript -->
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	</body>
 </html>

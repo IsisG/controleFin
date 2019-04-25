@@ -13,11 +13,57 @@
 		<title>Listas de Projetos</title>
 </head>
 <body data-ng-controller="controllerlistarProjeto">
+	<header>
+	 	  <div class="row  p-3 d-flex justify-content-between" style=" background: #e9ecef">
+		      <h3 style="color:#02376f"><img src="https://img.icons8.com/cotton/64/000000/receive-cash.png">Projetos de Finanças</h3>
+		       <div class="btn-group">
+			      <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow: none">
+			        Menu
+			     </button>
+			      <div class="dropdown-menu dropdown-menu-right">
+			      <a class="dropdown-item">Sair</a>
+			<!--       <a class="dropdown-item" href="cadastro_mensal">Cadastro Mensal</a> -->
+			<!--       <a class="dropdown-item">Controle do projeto</a> -->
+			     </div>
+		     </div>
+	      </div>
+ 	</header> 
 
-	
-	     <div class="row">
-	       <div class="col-7 m-auto"> 
-	          <table class="table mt-5">
+  <div class="row p-1" style="background: #7190b1"></div>
+     <div class="row">
+     <div class="col-md-1 menu" style="height: 100vh; background: #7190b1" id="menu-lateral">
+     	<ul class="list-unstyled text-center mt-5">
+                    <li class="mb-3">
+                        <a class="d-block text-white" href="index.html">
+                        <img src="https://img.icons8.com/ultraviolet/50/000000/add-file.png">
+                         <p> Cadastro</p>
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                     	<a class="d-block text-white" href="listar_projeto.html"><img src="https://img.icons8.com/ultraviolet/40/000000/report-card.png">
+                         <p>Registros</p>
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                     	<a class="d-block text-white" href="controles.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50"
+							viewBox="0 0 192 192" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none" stroke="none"></path><g><g id="surface1"><path d="M172.8,19.2l-28.8,33.6l-33.6,-19.2l-28.8,33.6l-33.6,-19.2l-28.8,24" fill="none" stroke="#4788c7"></path><path d="M26.4,72c0,3.975 -3.225,7.2 -7.2,7.2c-3.975,0 -7.2,-3.225 -7.2,-7.2c0,-3.975 3.225,-7.2 7.2,-7.2c3.975,0 7.2,3.225 7.2,7.2z" fill="#ecf0f1" stroke="none"></path><path d="M19.2,67.2c2.64375,0 4.8,2.15625 4.8,4.8c0,2.64375 -2.15625,4.8 -4.8,4.8c-2.64375,0 -4.8,-2.15625 -4.8,-4.8c0,-2.64375 2.15625,-4.8 4.8,-4.8M19.2,62.4c-5.30625,0 -9.6,4.29375 -9.6,9.6c0,5.30625 4.29375,9.6 9.6,9.6c5.30625,0 9.6,-4.29375 9.6,-9.6c0,-5.30625 -4.29375,-9.6 -9.6,-9.6z" fill="#4788c7" stroke="none"></path><path d="M55.2,48c0,3.975 -3.225,7.2 -7.2,7.2c-3.975,0 -7.2,-3.225 -7.2,-7.2c0,-3.975 3.225,-7.2 7.2,-7.2c3.975,0 7.2,3.225 7.2,7.2z" fill="#ecf0f1" stroke="none"></path><path d="M48,43.2c2.64375,0 4.8,2.15625 4.8,4.8c0,2.64375 -2.15625,4.8 -4.8,4.8c-2.64375,0 -4.8,-2.15625 -4.8,-4.8c0,-2.64375 2.15625,-4.8 4.8,-4.8M48,38.4c-5.30625,0 -9.6,4.29375 -9.6,9.6c0,5.30625 4.29375,9.6 9.6,9.6c5.30625,0 9.6,-4.29375 9.6,-9.6c0,-5.30625 -4.29375,-9.6 -9.6,-9.6z" fill="#4788c7" stroke="none"></path><path d="M88.8,67.2c0,3.975 -3.225,7.2 -7.2,7.2c-3.975,0 -7.2,-3.225 -7.2,-7.2c0,-3.975 3.225,-7.2 7.2,-7.2c3.975,0 7.2,3.225 7.2,7.2z" fill="#ecf0f1" stroke="none"></path><path d="M81.6,62.4c2.64375,0 4.8,2.15625 4.8,4.8c0,2.64375 -2.15625,4.8 -4.8,4.8c-2.64375,0 -4.8,-2.15625 -4.8,-4.8c0,-2.64375 2.15625,-4.8 4.8,-4.8M81.6,57.6c-5.30625,0 -9.6,4.29375 -9.6,9.6c0,5.30625 4.29375,9.6 9.6,9.6c5.30625,0 9.6,-4.29375 9.6,-9.6c0,-5.30625 -4.29375,-9.6 -9.6,-9.6z" fill="#4788c7" stroke="none"></path><path d="M117.6,33.6c0,3.975 -3.225,7.2 -7.2,7.2c-3.975,0 -7.2,-3.225 -7.2,-7.2c0,-3.975 3.225,-7.2 7.2,-7.2c3.975,0 7.2,3.225 7.2,7.2z" fill="#ecf0f1" stroke="none"></path><path d="M110.4,28.8c2.64375,0 4.8,2.15625 4.8,4.8c0,2.64375 -2.15625,4.8 -4.8,4.8c-2.64375,0 -4.8,-2.15625 -4.8,-4.8c0,-2.64375 2.15625,-4.8 4.8,-4.8M110.4,24c-5.30625,0 -9.6,4.29375 -9.6,9.6c0,5.30625 4.29375,9.6 9.6,9.6c5.30625,0 9.6,-4.29375 9.6,-9.6c0,-5.30625 -4.29375,-9.6 -9.6,-9.6z" fill="#4788c7" stroke="none"></path><path d="M151.2,52.8c0,3.975 -3.225,7.2 -7.2,7.2c-3.975,0 -7.2,-3.225 -7.2,-7.2c0,-3.975 3.225,-7.2 7.2,-7.2c3.975,0 7.2,3.225 7.2,7.2z" fill="#ecf0f1" stroke="none"></path><path d="M144,48c2.64375,0 4.8,2.15625 4.8,4.8c0,2.64375 -2.15625,4.8 -4.8,4.8c-2.64375,0 -4.8,-2.15625 -4.8,-4.8c0,-2.64375 2.15625,-4.8 4.8,-4.8M144,43.2c-5.30625,0 -9.6,4.29375 -9.6,9.6c0,5.30625 4.29375,9.6 9.6,9.6c5.30625,0 9.6,-4.29375 9.6,-9.6c0,-5.30625 -4.29375,-9.6 -9.6,-9.6z" fill="#4788c7" stroke="none"></path><path d="M180,19.2c0,3.975 -3.225,7.2 -7.2,7.2c-3.975,0 -7.2,-3.225 -7.2,-7.2c0,-3.975 3.225,-7.2 7.2,-7.2c3.975,0 7.2,3.225 7.2,7.2z" fill="#ecf0f1" stroke="none"></path><path d="M172.8,14.4c2.64375,0 4.8,2.15625 4.8,4.8c0,2.64375 -2.15625,4.8 -4.8,4.8c-2.64375,0 -4.8,-2.15625 -4.8,-4.8c0,-2.64375 2.15625,-4.8 4.8,-4.8M172.8,9.6c-5.30625,0 -9.6,4.29375 -9.6,9.6c0,5.30625 4.29375,9.6 9.6,9.6c5.30625,0 9.6,-4.29375 9.6,-9.6c0,-5.30625 -4.29375,-9.6 -9.6,-9.6z" fill="#4788c7" stroke="none"></path><path d="M160.8,74.4h19.2v110.4h-19.2z" fill="#ecf0f1" stroke="none"></path><path d="M177.6,76.8v105.6h-14.4v-105.6h14.4M182.4,72h-24v115.2h24z" fill="#4788c7" stroke="none"></path><path d="M103.2,98.4h19.2v86.4h-19.2z" fill="#ecf0f1" stroke="none"></path><path d="M120,100.8v81.6h-14.4v-81.6h14.4M124.8,96h-24v91.2h24z" fill="#4788c7" stroke="none"></path><path d="M74.4,132h19.2v52.8h-19.2z" fill="#ecf0f1" stroke="none"></path><path d="M91.2,134.4v48h-14.4v-48h14.4M96,129.6h-24v57.6h24z" fill="#4788c7" stroke="none"></path><path d="M45.6,117.6h19.2v67.2h-19.2z" fill="#ecf0f1" stroke="none"></path><path d="M62.4,120v62.4h-14.4v-62.4h14.4M67.2,115.2h-24v72h24z" fill="#4788c7" stroke="none"></path><path d="M16.8,141.6h19.2v43.2h-19.2z" fill="#ecf0f1" stroke="none"></path><path d="M33.6,144v38.4h-14.4v-38.4h14.4M38.4,139.2h-24v48h24z" fill="#4788c7" stroke="none"></path><path d="M132,112.8h19.2v72h-19.2z" fill="#ecf0f1" stroke="none"></path><path d="M148.8,115.2v67.2h-14.4v-67.2h14.4M153.6,110.4h-24v76.8h24z" fill="#4788c7" stroke="none"></path></g></g></g></svg>
+                         <p>Controle</p>
+                        </a>
+                    </li>
+                </ul>
+      </div>
+<!-- -------------------------------------------------------------------------------------------------------------------------------------- -->	
+<div class="row col-md-10">
+	<div class="col-8 m-auto"> 
+<nav>
+  <div class="nav nav-tabs mt-5" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-projeto" role="tab" aria-controls="nav-home" aria-selected="true">Projetos</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-mensal" role="tab" aria-controls="nav-mensal" aria-selected="false">Mensais</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-projeto" role="tabpanel" aria-labelledby="nav-home-tab">
+  <table class="table mt-2">
 	  <thead class="text-white" style="background-color:#7397bb; border-color: #dee2e6">
 	    <tr>
 	      <th scope="col"></th>
@@ -30,24 +76,177 @@
 	  <tbody style="color:#757677">
 	    <tr data-ng-repeat="lista in projetos.data">
 	       <th scope="row">{{lista.id}}</th>
-	      <td>{{lista.nome_projetos}}</td>
+	      <td>{{lista.nomeProjetos}}</td>
 	      <td>{{lista.qtd_meses}}</td>
-	      <td>{{lista.valor}}</td>
-	      <td></td>
+	      <td>R$ {{lista.valor | currency : ""}}</td>
+	      <td><button data-ng-click="deletarProjeto(lista.id)"class="btn-acao"><img src="https://img.icons8.com/color/30/000000/close-window.png"></button>
+	      <button class="btn-acao" data-toggle="modal" data-target="#btn-editar" data-ng-click = "editarProjeto(lista)"><img src="https://img.icons8.com/office/26/000000/multi-edit.png"></button></td>
 	    </tr>
 	  </tbody>
 	</table>
-	       </div>
 	     
-	     </div>
+   <div class="modal fade" id="btn-editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form name="projetoForm" >
+		 	<br>
+		 <div>
+		 	<input type="hidden" data-ng-model="item.id">
+		 </div>
+		  <div class="input-group mb-5">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="basic-addon1">Projeto</span>
+		  </div>
+		  <input autocomplete="off" type="text" class="form-control" aria-label="nome" aria-describedby="basic-addon1" name="nome" data-ng-model="item.nomeProjetos">
+		</div>
+		<div class="input-group mb-2">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="basic-addon3">Meses</span>
+		  </div>
+		  <input type="number" class="form-control mr-2" name="meses" aria-describedby="basic-addon3" data-ng-model="item.qtd_meses">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text">R$</span>
+		  </div>
+		  <input type="number" class="form-control" placeholder="Valor do Investimento" name="valor" data-ng-model="item.valor">
+		</div>	
 		
+		</form>
+	 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" data-ng-click="atualizarProjeto(item)">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- ------------------------------------------------------------------------------------------------------------------------- -->
+ 
+  <div class="tab-pane fade show" id="nav-mensal" role="tabpanel" aria-labelledby="nav-profile-tab">
 	
-	
+	  <table class="table mt-2">
+	  <thead class="text-white" style="background-color:#7397bb; border-color: #dee2e6">
+	    <tr>
+	      <th scope="col"></th>
+	      <th scope="col">Projeto</th>
+	      <th scope="col">Valor</th>
+	      <th scope="col">Mês</th>
+	      <th scope="col">Ações</th>
+	    </tr>
+	  </thead>
+	  <tbody style="color:#757677">
+	    <tr data-ng-repeat="todos in mensais.data">
+	       <th scope="row">{{todos.id_mensal}}</th>
+	      <td>{{todos.projetos.nomeProjetos}}</td>
+	      <td>R$ {{todos.valor_mensal | currency : ""}}</td>
+	      <td>{{todos.mes}}</td>
+	      <td><button data-ng-click="deletarMensal(todos.id_mensal)"class="btn-acao"><img src="https://img.icons8.com/color/30/000000/close-window.png"></button>
+	      <button class="btn-acao" data-toggle="modal" data-target="#btn-edita" data-ng-click = "editarMensal(todos)"><img src="https://img.icons8.com/office/26/000000/multi-edit.png"></button></td>
+	    </tr>
+	  </tbody>
+	</table>
+    
+    <div class="modal fade" id="btn-edita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        	<form name="mensalForm" >
+		 	<br>
+		 <div>
+		 	<input type="hidden" data-ng-model="itens.id_mensal">
+		 </div>
+		  <div class="input-group mb-5">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="basic-addon1">Projeto</span>
+		  </div>
+		  <input autocomplete="off" type="text" class="form-control" aria-label="id_projeto" aria-describedby="basic-addon1" name="id_projeto" data-ng-model="itens.projetos.nomeProjetos">
+		</div>
+		<div class="input-group mb-2">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="basic-addon3">Mes</span>
+		  </div>
+		  <input type="text" class="form-control mr-2" name="meses" aria-describedby="basic-addon3" data-ng-model="itens.mes">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text">R$</span>
+		  </div>
+		  <input type="number" class="form-control" placeholder="Valor do Investimento" name="valor" data-ng-model="itens.valor_mensal">
+		</div>	
+		</form>
+        
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" data-ng-click="atualizarMensal(itens)">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+
+	</div>
+	</div>
+	</div>
+</div>
+	       
+	 
+
+<!-- --------------------------------------MENSAL----------------------------------------------------------------------------------------------- -->
+
+
 	    <!-- Optional JavaScript -->
 	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<style>
+	       #menu-lateral {
+	           padding: 0;
+	          
+	       }
+	
+	       #menu-lateral li {
+	           padding: 0.8rem 0.6rem;
+	       }
+	
+	       #menu-lateral a {
+	           text-decoration: none;
+	       }
+	
+	
+	       #menu-lateral ul li:hover{
+	           background: #647d98 ;
+	           cursor: pointer;
+	           transition: all 1s;
+	       } 	
+	       
+	        .btn-acao{
+	          background: #FFF;
+             border: 0;
+	   } 
+	 </style>
+	 
 </body>
+
 
 </html>

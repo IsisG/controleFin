@@ -11,5 +11,6 @@ import com.confin.controlesFinanceiros.domain.DadosMensais;
 public interface MensalRepository extends CrudRepository<DadosMensais, Integer> {
 
 	List<DadosMensais> findAll();
+	List<DadosMensais> findAllByProjetos_NomeProjetos(String nome);
 
 }

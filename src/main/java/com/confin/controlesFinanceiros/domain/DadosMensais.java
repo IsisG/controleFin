@@ -19,6 +19,9 @@ public class DadosMensais {
 	@JoinColumn(name = "id_projeto")
 	private DadosProjetos projetos;
 	private float valor_mensal;
+	private String mes;
+	
+	//public DadosMensais() {}
 
 	public Integer getId_mensal() {
 		return id_mensal;
@@ -44,10 +47,20 @@ public class DadosMensais {
 		this.valor_mensal = valor_mensal;
 	}
 
+	public String getMes() {
+		return mes;
+	}
+
+	public void setMes(String mes) {
+		this.mes = mes;
+	}
+
 	@Override
 	public String toString() {
 		return "DadosMensais [id_mensal=" + id_mensal + ", projetos=" + projetos + ", valor_mensal=" + valor_mensal
-				+ "]";
+				+ ", mes=" + mes + "]";
 	}
+	
+	
 
 }
