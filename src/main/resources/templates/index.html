@@ -61,8 +61,8 @@
         <div class="w-75 m-auto pt-5">
 			<nav id="tab-cadastro">
 			  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-			    <a class="nav-item nav-link active p-4" id="nav-home-tab" data-toggle="tab" href="#nav-projeto" role="tab" aria-controls="nav-home" aria-selected="true">Projeto</a>
-			    <a class="nav-item nav-link p-4" id="nav-profile-tab" data-toggle="tab" href="#nav-mensal" role="tab" aria-controls="nav-profile" aria-selected="false">Mensal</a>
+			    <a class="nav-item nav-link active p-3" id="nav-home-tab" data-toggle="tab" href="#nav-projeto" role="tab" aria-controls="nav-home" aria-selected="true">Projeto</a>
+			    <a class="nav-item nav-link p-3" id="nav-profile-tab" data-toggle="tab" href="#nav-mensal" role="tab" aria-controls="nav-profile" aria-selected="false">Mensal</a>
 			  </div>
 		  </nav>
 			<div class="tab-content" id="nav-tabContent">
@@ -119,9 +119,51 @@
         </div>
       </div>
   </div>
+  </div>
+  
+  
+  
+  
+  
+  <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	
+
+	
+<script type="text/javascript">
+
+Highcharts.chart('container', {
+    data: {
+        table: 'datatable'
+    },
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Data extracted from a HTML table in the page'
+    },
+    yAxis: {
+        allowDecimals: false,
+        title: {
+            text: 'Units'
+        }
+    },
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                this.point.y + ' ' + this.point.name.toLowerCase();
+        }
+    }
+});
+
+
+
+</script>
 	<style>
 	
 	
@@ -159,6 +201,9 @@
 	           transition: all 1s;
 	       } 	 
 	 </style>
+	 
+	 
+	 
 </body>
 
 </html>

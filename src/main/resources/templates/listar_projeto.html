@@ -13,6 +13,8 @@
 		<title>Listas de Projetos</title>
 </head>
 <body data-ng-controller="controllerlistarProjeto">
+
+ <div class="container-fluid "> 
 	<header>
 	 	  <div class="row  p-3 d-flex justify-content-between" style=" background: #e9ecef">
 		      <h3 style="color:#02376f"><img src="https://img.icons8.com/cotton/64/000000/receive-cash.png">Projetos de Finanças</h3>
@@ -28,7 +30,6 @@
 		     </div>
 	      </div>
  	</header> 
-
   <div class="row p-1" style="background: #7190b1"></div>
      <div class="row">
      <div class="col-md-1 menu" style="height: 100vh; background: #7190b1" id="menu-lateral">
@@ -51,110 +52,74 @@
                         </a>
                     </li>
                 </ul>
+         
+       </div>
+<!-- --------------------------------------TAB----------------------------------------------------------------------------------------------- -->
+       <div class="col-md-11 ">
+        <div class="w-75 m-auto pt-5">
+			<nav id="tab-cadastro">
+			  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+			    <a class="nav-item nav-link active p-3" id="nav-home-tab" data-toggle="tab" href="#nav-projeto" role="tab" aria-controls="nav-home" aria-selected="true">Projeto</a>
+			    <a class="nav-item nav-link p-3" id="nav-profile-tab" data-toggle="tab" href="#nav-mensal" role="tab" aria-controls="nav-profile" aria-selected="false">Mensal</a>
+			  </div>
+		  </nav>
+			<div class="tab-content" id="nav-tabContent">
+			  <div class="tab-pane fade show active mt-5" id="nav-projeto" role="tabpanel" aria-labelledby="nav-home-tab">
+				<table class="table mt-2">
+					  <thead class="text-white" style="background-color:#7397bb; border-color: #dee2e6">
+					    <tr>
+					      <th scope="col"></th>
+					      <th scope="col">Projeto</th>
+					      <th scope="col">Meses</th>
+					      <th scope="col">Objetivo</th>
+					      <th scope="col">Ações</th>
+					    </tr>
+					  </thead>
+					  <tbody style="color:#757677">
+					    <tr data-ng-repeat="lista in projetos.data">
+					       <th scope="row">{{lista.id}}</th>
+					      <td>{{lista.nomeProjetos}}</td>
+					      <td>{{lista.qtd_meses}}</td>
+					      <td>R$ {{lista.valor | currency : ""}}</td>
+					      <td><button data-ng-click="deletarProjeto(lista.id)"class="btn-acao"><img src="https://img.icons8.com/color/30/000000/close-window.png"></button>
+					      <button class="btn-acao" data-toggle="modal" data-target="#btn-editar" data-ng-click = "editarProjeto(lista)"><img src="https://img.icons8.com/office/26/000000/multi-edit.png"></button></td>
+					    </tr>
+					  </tbody>
+				</table>
+			</div>
+<!--------------------------------- MENSAL ---------------------------------------------------->
+			<div class="tab-pane fade mb-3 mt-5" id="nav-mensal" role="tabpanel" aria-labelledby="nav-profile-tab" >
+			  <table class="table mt-2">
+				  <thead class="text-white" style="background-color:#7397bb; border-color: #dee2e6">
+				    <tr>
+				      <th scope="col"></th>
+				      <th scope="col">Projeto</th>
+				      <th scope="col">Valor</th>
+				      <th scope="col">Mês</th>
+				      <th scope="col">Ações</th>
+				    </tr>
+				  </thead>
+				  <tbody style="color:#757677">
+				    <tr data-ng-repeat="todos in mensais.data">
+				       <th scope="row">{{todos.id_mensal}}</th>
+				      <td>{{todos.projetos.nomeProjetos}}</td>
+				      <td>R$ {{todos.valor_mensal | currency : ""}}</td>
+				      <td>{{todos.mes}}</td>
+				      <td><button data-ng-click="deletarMensal(todos.id_mensal)"class="btn-acao"><img src="https://img.icons8.com/color/30/000000/close-window.png"></button>
+				      <button class="btn-acao" data-toggle="modal" data-target="#btn-edita" data-ng-click = "editarMensal(todos)"><img src="https://img.icons8.com/office/26/000000/multi-edit.png"></button></td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			</div>
+        </div>
       </div>
-<!-- -------------------------------------------------------------------------------------------------------------------------------------- -->	
-<div class="row col-md-10">
-	<div class="col-8 m-auto"> 
-<nav>
-  <div class="nav nav-tabs mt-5" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-projeto" role="tab" aria-controls="nav-home" aria-selected="true">Projetos</a>
-    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-mensal" role="tab" aria-controls="nav-mensal" aria-selected="false">Mensais</a>
-  </div>
-</nav>
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-projeto" role="tabpanel" aria-labelledby="nav-home-tab">
-  <table class="table mt-2">
-	  <thead class="text-white" style="background-color:#7397bb; border-color: #dee2e6">
-	    <tr>
-	      <th scope="col"></th>
-	      <th scope="col">Projeto</th>
-	      <th scope="col">Meses</th>
-	      <th scope="col">Objetivo</th>
-	      <th scope="col">Ações</th>
-	    </tr>
-	  </thead>
-	  <tbody style="color:#757677">
-	    <tr data-ng-repeat="lista in projetos.data">
-	       <th scope="row">{{lista.id}}</th>
-	      <td>{{lista.nomeProjetos}}</td>
-	      <td>{{lista.qtd_meses}}</td>
-	      <td>R$ {{lista.valor | currency : ""}}</td>
-	      <td><button data-ng-click="deletarProjeto(lista.id)"class="btn-acao"><img src="https://img.icons8.com/color/30/000000/close-window.png"></button>
-	      <button class="btn-acao" data-toggle="modal" data-target="#btn-editar" data-ng-click = "editarProjeto(lista)"><img src="https://img.icons8.com/office/26/000000/multi-edit.png"></button></td>
-	    </tr>
-	  </tbody>
-	</table>
-	     
-   <div class="modal fade" id="btn-editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      	<form name="projetoForm" >
-		 	<br>
-		 <div>
-		 	<input type="hidden" data-ng-model="item.id">
-		 </div>
-		  <div class="input-group mb-5">
-		  <div class="input-group-prepend">
-		    <span class="input-group-text" id="basic-addon1">Projeto</span>
-		  </div>
-		  <input autocomplete="off" type="text" class="form-control" aria-label="nome" aria-describedby="basic-addon1" name="nome" data-ng-model="item.nomeProjetos">
-		</div>
-		<div class="input-group mb-2">
-		  <div class="input-group-prepend">
-		    <span class="input-group-text" id="basic-addon3">Meses</span>
-		  </div>
-		  <input type="number" class="form-control mr-2" name="meses" aria-describedby="basic-addon3" data-ng-model="item.qtd_meses">
-		  <div class="input-group-prepend">
-		    <span class="input-group-text">R$</span>
-		  </div>
-		  <input type="number" class="form-control" placeholder="Valor do Investimento" name="valor" data-ng-model="item.valor">
-		</div>	
-		
-		</form>
-	 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" data-ng-click="atualizarProjeto(item)">Salvar</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<!-- ------------------------------------------------------------------------------------------------------------------------- -->
- 
-  <div class="tab-pane fade show" id="nav-mensal" role="tabpanel" aria-labelledby="nav-profile-tab">
-	
-	  <table class="table mt-2">
-	  <thead class="text-white" style="background-color:#7397bb; border-color: #dee2e6">
-	    <tr>
-	      <th scope="col"></th>
-	      <th scope="col">Projeto</th>
-	      <th scope="col">Valor</th>
-	      <th scope="col">Mês</th>
-	      <th scope="col">Ações</th>
-	    </tr>
-	  </thead>
-	  <tbody style="color:#757677">
-	    <tr data-ng-repeat="todos in mensais.data">
-	       <th scope="row">{{todos.id_mensal}}</th>
-	      <td>{{todos.projetos.nomeProjetos}}</td>
-	      <td>R$ {{todos.valor_mensal | currency : ""}}</td>
-	      <td>{{todos.mes}}</td>
-	      <td><button data-ng-click="deletarMensal(todos.id_mensal)"class="btn-acao"><img src="https://img.icons8.com/color/30/000000/close-window.png"></button>
-	      <button class="btn-acao" data-toggle="modal" data-target="#btn-edita" data-ng-click = "editarMensal(todos)"><img src="https://img.icons8.com/office/26/000000/multi-edit.png"></button></td>
-	    </tr>
-	  </tbody>
-	</table>
-    
-    <div class="modal fade" id="btn-edita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	       
+	 </div>
+
+<!--------------------------------- Modal-mensal ---------------------------------------------------->
+
+<div class="modal fade" id="btn-edita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -197,29 +162,82 @@
   </div>
 </div>
 
-
-
-
-
-  </div>
-
-	</div>
-	</div>
-	</div>
 </div>
-	       
+
+<!--------------------------------- Modal-projeto ---------------------------------------------------->
+
+<div class="modal fade" id="btn-editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form name="projetoForm" >
+		 	<br>
+		 <div>
+		 	<input type="hidden" data-ng-model="item.id">
+		 </div>
+		  <div class="input-group mb-5">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="basic-addon1">Projeto</span>
+		  </div>
+		  <input autocomplete="off" type="text" class="form-control" aria-label="nome" aria-describedby="basic-addon1" name="nome" data-ng-model="item.nomeProjetos">
+		</div>
+		<div class="input-group mb-2">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="basic-addon3">Meses</span>
+		  </div>
+		  <input type="number" class="form-control mr-2" name="meses" aria-describedby="basic-addon3" data-ng-model="item.qtd_meses">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text">R$</span>
+		  </div>
+		  <input type="number" class="form-control" placeholder="Valor do Investimento" name="valor" data-ng-model="item.valor">
+		</div>	
+		
+		</form>
 	 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" data-ng-click="atualizarProjeto(item)">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- --------------------------------------MENSAL----------------------------------------------------------------------------------------------- -->
-
+  	
 
 	    <!-- Optional JavaScript -->
 	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-	<style>
+   
+    
+   
+   
+   
+    <style>
+	
+	
+	  #tab-cadastro a{
+	    color:#526477;
+	  }
+	      #tab-cadastro .active{
+	         color: #f5f8fb !important;
+             background-color: #526477 !important;
+           
+              font-weight: 500 !important;
+	      }
+	      
+	      #tab-cadastro  .nav-tabs .nav-link{
+	      
+	       border-radius: 0 !important;
+	      }
 	       #menu-lateral {
 	           padding: 0;
 	          
@@ -240,10 +258,11 @@
 	           transition: all 1s;
 	       } 	
 	       
-	        .btn-acao{
-	          background: #FFF;
+	       .btn-acao{
+	       
+	         background: #FFF;
              border: 0;
-	   } 
+	       } 
 	 </style>
 	 
 </body>
